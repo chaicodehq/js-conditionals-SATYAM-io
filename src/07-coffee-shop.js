@@ -32,4 +32,62 @@
  */
 export function calculateCoffeePrice(size, type, extras = {}) {
   // Your code here
+  if (size !== "small" && size !== "medium" && size !== "large") {
+  return -1;
+}
+
+if (type !== "regular" && type !== "latte" && type !== "cappuccino" && type !== "mocha") {
+  return -1;
+}
+
+let number;
+const { whippedCream, extraShot } = extras;
+
+if(size == "small"){
+  number = 3.00
+  if(type == "regular"){
+    number = number + 0.00
+  } else if ( type == "latte"){
+    number = number + 1.00
+  } else if (type == "cappuccino"){
+    number = number + 1.50
+  } else if (type == "mocha"){
+    number = number + 2.00
+  }
+}
+if(size == "medium"){
+  number = 4.00
+  if(type == "regular"){
+    number = number + 0.00
+  } else if ( type == "latte"){
+    number = number + 1.00
+  } else if (type == "cappuccino"){
+    number = number + 1.50
+  } else if (type == "mocha"){
+    number = number + 2.00
+  }
+}
+if(size == "large"){
+  number = 5.00
+  if(type == "regular"){
+    number = number + 0.00
+  } else if ( type == "latte"){
+    number = number + 1.00
+  } else if (type == "cappuccino"){
+    number = number + 1.50
+  } else if (type == "mocha"){
+    number = number + 2.00
+  }
+}
+
+if(whippedCream){
+  number = number + 0.50
+ }
+if(extraShot){
+  number = number + 0.75
+ }
+
+number = Math.round(number * 100) / 100;
+
+return number
 }
